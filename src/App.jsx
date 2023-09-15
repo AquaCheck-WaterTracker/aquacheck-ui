@@ -1,6 +1,6 @@
 import './App.css'
 import Navbar from './components/atoms/navbar/Navbar'
-import Homepage from './containers/HomePage'
+import Homepage from './containers/Homepage'
 
 function App() {
 
