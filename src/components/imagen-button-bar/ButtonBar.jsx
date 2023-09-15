@@ -18,7 +18,7 @@ const ButtonBar = () => {
     };
   
     return (
-      <div className='flex flex-row justify-center mt-20'>
+      <div className='flex flex-row justify-center my-20'>
         <ImageButton image={glass} onClick = { event => addWater(200) } />
         <ImageButton image={bottlexs} onClick = { event => addWater(300) } />
         <ImageButton image={botellalg} onClick = { event => addWater(1000) } />
