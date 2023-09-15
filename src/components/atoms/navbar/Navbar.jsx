@@ -2,7 +2,7 @@ import logo from '../../../assets/AquaCheck.svg'
 
 function Navbar() {
     return (
-      <nav id="header" className="w-full z-30 top-10 py-1 bg-white shadow-lg border-b border-blue-400">
+      <nav id="header" className="w-full z-30 top-10 py-1 bg-white shadow-lg">
         <div className="w-full flex items-center justify-between mt-0 px-6 py-2">
           <label htmlFor="menu-toggle" className="cursor-pointer md:hidden block">
             <svg
@@ -56,7 +56,7 @@ function Navbar() {
   
           <div className="order-2 md:order-3 flex flex-wrap items-center justify-end mr-0 md:mr-4" id="nav-content">
             <div className="auth flex items-center w-full md:w-full">
-              <button className="bg-sky-500 text-white p-2 rounded hover:bg-blue-500 hover:text-gray-100">
+              <button className="bg-sky-500 text-white p-2 rounded hover:bg-sky-600 hover:text-white">
                 Get started
               </button>
             </div>
