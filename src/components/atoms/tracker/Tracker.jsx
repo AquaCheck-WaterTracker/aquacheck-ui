@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import ButtonBar from '../../imagen-button-bar/ButtonBar';
+
 
 function Tracker() {
     const [posts, setPosts] = useState([])
@@ -22,13 +22,10 @@ function Tracker() {
 
     return (
     <>
-        <main>
+        <>
             <h2 className='flex flex-col items-center my-4'> Tracker</h2>
             <div className='flex flex-col items-center my-10'> {postsList} </div>
-            <div>
-                <ButtonBar/>
-            </div>
-        </main>
+        </>
         
     </>
     );

@@ -18,23 +18,29 @@ const ButtonBar = () => {
     };
   
     return (
+
+      <>
+      <div className='flex flex-col items-center'>
+      <p> {waterQuantity}</p>
+      { waterQuantity >= goal ? ( <p> Enhorabuena </p>) : <p> Aun no has llegado a tu meta </p> }
+      </div>
+
       <div className='flex flex-row justify-center my-20'>
         <ImageButton image={glass} onClick = { event => addWater(200) } />
         <ImageButton image={bottlexs} onClick = { event => addWater(300) } />
         <ImageButton image={botellalg} onClick = { event => addWater(1000) } />
         
 
-        <p> {waterQuantity}</p>
-        
-        { waterQuantity === goal ? ( <p> Enhorabuena </p>) : <p> Aun no has llegado a tu meta </p> }
-
-        
        
-      
 
          {/* Submit form button para mandar a la API todo lo bebido */}
         
       </div>
+      
+      </>
+
+      
+      
     );
   };
   
