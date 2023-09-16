@@ -28,13 +28,13 @@ function Navbar() {
           <div className="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
             <nav>
               <ul className="md:flex items-center justify-between text-base text-sky-500 pt-4 md:pt-0">
-                <li>
+                <li className="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2">
                 <Link to='/'>Home</Link>
                 </li>
-                <li>
-                <Link to='/goal'>Goal</Link>
+                <li className="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2">
+                <Link to='/goal'>Advice</Link>
                 </li>
-                <li>
+                <li className="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2">
                 <Link to='/about'>About</Link>
                 </li>
               </ul>
