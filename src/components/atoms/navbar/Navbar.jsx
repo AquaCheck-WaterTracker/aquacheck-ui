@@ -1,4 +1,6 @@
 import logo from '../../../assets/AquaCheck.svg'
+import { Link } from "react-router-dom";
+
 
 function Navbar() {
     return (
@@ -27,28 +29,13 @@ function Navbar() {
             <nav>
               <ul className="md:flex items-center justify-between text-base text-sky-500 pt-4 md:pt-0">
                 <li>
-                  <a
-                    className="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2"
-                    href="#"
-                  >
-                    Home
-                  </a>
+                <Link to='/'>Home</Link>
                 </li>
                 <li>
-                  <a
-                    className="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2"
-                    href="#"
-                  >
-                    Goals
-                  </a>
+                <Link to='/goal'>Goal</Link>
                 </li>
                 <li>
-                  <a
-                    className="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2"
-                    href="#"
-                  >
-                    About
-                  </a>
+                <Link to='/about'>About</Link>
                 </li>
               </ul>
             </nav>
