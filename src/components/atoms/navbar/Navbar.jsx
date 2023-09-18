@@ -1,10 +1,16 @@
 import logo from '../../../assets/AquaCheck.svg'
 import { Link } from "react-router-dom";
+import { UserContext } from '../../../App'
+import { useContext } from 'react';
+
 
 
 function Navbar() {
+
+  const { user, setUser } = useContext(UserContext);
+  
     return (
-      <nav id="header" className="w-full z-30 top-10 py-1 bg-white shadow-lg">
+      <nav id="header" className="w-full z-30 top-10 py-1 bg-white shadow-sm">
         <div className="w-full flex items-center justify-between mt-0 px-6 py-2">
           <label htmlFor="menu-toggle" className="cursor-pointer md:hidden block">
             <svg
@@ -43,9 +49,7 @@ function Navbar() {
   
           <div className="order-2 md:order-3 flex flex-wrap items-center justify-end mr-0 md:mr-4" id="nav-content">
             <div className="auth flex items-center w-full md:w-full">
-              <button className="bg-sky-500 text-white p-2 rounded hover:bg-sky-600 hover:text-white">
-                Get started
-              </button>
+                 <p className='text-sky-500'> {user && user.name} Profile </p>
             </div>
           </div>
         </div>

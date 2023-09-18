@@ -4,20 +4,10 @@ const useFetch = (url) => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const json = await response.json();
-        setData(json);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
+    fetch(url)
+    .then(res => res.json())
+    .then(data => setData(data))
+    .catch(e => console.log(`Error: ${e}`))
   }, [url]);
 
   return { data };
