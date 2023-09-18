@@ -21,22 +21,29 @@ const ButtonBar = ({goal}) => {
 
       <>
       <div className='flex flex-col items-center'>
-      <p className="my-10">Tu goal es: {goal} ml</p>
+      <h2 className="my-10 text-3xl text-cyan-800"> Goal: {goal} ml</h2>
       </div>
-      <div className='flex flex-row justify-center my-20'>
-        <ImageButton image={glass} onClick = { event => addWater(200) } />
-        <ImageButton image={bottlexs} onClick = { event => addWater(300) } />
-        <ImageButton image={botellalg} onClick = { event => addWater(1000) } />
-      </div>
-
       <div className='flex flex-col items-center'>
-      <p> {waterQuantity}</p>
-      { waterQuantity >= goal ? ( <p> Enhorabuena </p>) : <p> Aun no has llegado a tu meta </p> }
+      <p className="my-10 text-3xl text-sky-500"> {waterQuantity} ml</p>
+      { waterQuantity >= goal ? ( <p className="my-10 text-base text-sky-500 text-lg "> Nice job! </p>) : <p className="my-4 text-base text-amber-500 text-lg"> You have not hit your goal yet </p> }
       </div>
-      
+      <div className='flex flex-row justify-center my-20 '>
+        <div className='flex flex-col items-center'>
+          <ImageButton image={glass} onClick = { event => addWater(200) } />
+          <p className="my-2 text-base text-cyan-700">200ml</p>
+        </div>
+        <div className='flex flex-col items-center'>
+        <ImageButton image={bottlexs} onClick = { event => addWater(300) } />
+        <p className="my-2 text-base text-cyan-700">300ml</p>
+        </div>
+        <div className='flex flex-col items-center'>
+        <ImageButton image={botellalg} onClick = { event => addWater(1000) } />
+        <p className="my-2 text-base text-cyan-700"> 1000ml</p>
+        </div>
+      </div>
       {/* Submit button para mandar a la API todo lo bebido */}
        <div className='flex flex-col items-center'>
-        <button className="bg-blue-400 hover:bg-blue-700 text-white font-semi-bold py-2 px-4 rounded" onClick={ event => saveWater(waterQuantity)}>
+        <button className="bg-blue-400 hover:bg-blue-700 text-white font-semi-bold py-2 px-4 rounded mt-2 mb-20" onClick={ event => saveWater(waterQuantity)}>
           Save water
         </button>
         </div>

@@ -1,4 +1,4 @@
-import logo from '../../../assets/AquaCheck.svg'
+import logo from '../../../assets/logo.svg'
 import { Link } from "react-router-dom";
 import { UserContext } from '../../../App'
 import { useContext } from 'react';
@@ -28,7 +28,7 @@ function Navbar() {
   
           <div className="flex items-center justify-start">
                 <img className="logo" src={logo} />
-                <h1 className="text-sky-500 text-xl font-semibold">AquaCheck</h1>
+                <h1 className="text-sky-500 text-xl font-medium">AquaCheck</h1>
              </div>
 
           <div className="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">

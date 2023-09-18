@@ -6,7 +6,7 @@ import soda from '../assets/soda.svg'
 
 function Goal() {
     return (
-        <div className="flex flex-col py-10 ml-10 mr-10">
+        <div className="flex flex-col text-cyan-800 mx-10 py-8">
             <h1 className="text-2xl py-4">How Much Water Do I Need?</h1>
                 <p>Water is an essential nutrient at every age, so optimal hydration is a key component for good health. Water accounts for about 60% of an adult’s body weight. We drink fluids when we feel thirst, the major signal alerting us when our body runs low on water. We also customarily drink beverages with meals to help with digestion. But sometimes we drink not based on these factors but on how much we think we should be drinking. One of the most familiar sayings is to aim for “8 glasses a day,” but this may not be appropriate for every person.</p>
             <h3 className="text-xl py-2 mb-2 mt-5">General recommendations:</h3>
