@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import pinterest from "../../../assets/pinterest.svg"
 import instagram from "../../../assets/instagram.svg"
 
@@ -46,8 +45,6 @@ function Footer() {
     )
   }
   
-  Footer.propTypes = {
-    image: PropTypes.string.isRequired
-  };
+
   export default Footer
   
