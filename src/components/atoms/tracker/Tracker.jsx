@@ -1,25 +1,15 @@
-import { useEffect, useState } from 'react';
 import ButtonBar from '../../imagen-button-bar/ButtonBar'
-
+import useFetch from "../../../hooks/useFetch";
 
 function Tracker() {
-    const [goal, setGoal] = useState([])
+  const { data: goal } = useFetch("http://127.0.0.1:8000/api/goals?userId=1");
 
-    useEffect(() => {
-        fetch('http://127.0.0.1:8000/api/goals?userId=1')
-           .then((response) => response.json())
-           .then((data) => {
-              console.log(data);
-              setGoal(data);
-           })
-           .catch((err) => {
-              console.log(err.message);
-           });
-     }, []);
+  if (!goal) {
+    return <div>Loading...</div>;
+  }
 
-    return (
+  return (
     <>
-        <>
             <h2 className='flex flex-col items-center my-4'> Tracker</h2>
             <div className='flex flex-col items-center my-10'> 
                 <ul>
@@ -31,10 +21,10 @@ function Tracker() {
 
             <ButtonBar goal={goal.goal || 0}></ButtonBar>
         </>
-        
-    </>
-    );
-  }
-  
-  export default Tracker;
-  
+  );
+}
+
+export default Tracker;
+
+
+
