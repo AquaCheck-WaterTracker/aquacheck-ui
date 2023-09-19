@@ -1,4 +1,4 @@
-import Tracker from "../components/atoms/tracker/Tracker";
+import Tracker from "../components/molecules/tracker/Tracker";
 
 
 

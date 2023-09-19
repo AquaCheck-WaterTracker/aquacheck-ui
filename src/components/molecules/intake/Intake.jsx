@@ -1,12 +1,12 @@
-import ImageButton from "../atoms/Button/ImageButton";
+import ImageButton from "../../atoms/Button/ImageButton";
 import PropTypes from 'prop-types';
-import glass from "./../../assets/glass-200.svg";
-import bottlexs from "./../../assets/bottle400.svg";
-import botellalg from "./../../assets/bottle700.svg";
+import glass from "../../../assets/glass-200.svg";
+import bottlexs from "../../../assets/bottle400.svg";
+import botellalg from "../../../assets/bottle700.svg";
 import {useState} from "react";
 
 
-const ButtonBar = ({goal}) => {
+const Intake = ({goal}) => {
     const [waterQuantity, setWaterQuantity] = useState(0);
 
     const addWater = (quantity) => {     
@@ -18,11 +18,7 @@ const ButtonBar = ({goal}) => {
     };
 
     return (
-
       <>
-      <div className='flex flex-col items-center'>
-        <h2 className="my-10 text-3xl text-cyan-800"> Goal: {goal} ml</h2>
-      </div>
       <div className='flex flex-col items-center'>
         <p className="my-10 text-3xl text-sky-500"> {waterQuantity} ml</p>
       { waterQuantity >= goal ? ( <p className="my-10 text-base text-sky-500 text-lg "> Nice job! </p>) : <p className="my-4 text-base text-amber-500 text-lg"> You have not hit your goal yet </p> }
@@ -52,10 +48,10 @@ const ButtonBar = ({goal}) => {
     );
   };
   
-  ButtonBar.propTypes = {
+  Intake.propTypes = {
     goal: PropTypes.number.isRequired,
   };
-  export default ButtonBar;
+  export default Intake;
  
   
   

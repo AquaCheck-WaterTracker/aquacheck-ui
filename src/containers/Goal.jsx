@@ -1,7 +1,7 @@
 import gym from '../assets/gym.svg'
 import fruit from '../assets/fruit.svg'
 import soda from '../assets/soda.svg';
-import UpdateGoal from '../components/atoms/Form/updateGoal';
+
 
 
 
@@ -12,9 +12,7 @@ function Goal() {
 
         <>
        
-        <div className="flex flex-col items-center">
-        <UpdateGoal></UpdateGoal>
-        </div>
+        
         <div className="flex flex-col text-cyan-800 mx-10 py-8">
             <h1 className="text-2xl py-4">How Much Water Do I Need?</h1>
                 <p>Water is an essential nutrient at every age, so optimal hydration is a key component for good health. Water accounts for about 60% of an adult’s body weight. We drink fluids when we feel thirst, the major signal alerting us when our body runs low on water. We also customarily drink beverages with meals to help with digestion. But sometimes we drink not based on these factors but on how much we think we should be drinking. One of the most familiar sayings is to aim for “8 glasses a day,” but this may not be appropriate for every person.</p>
