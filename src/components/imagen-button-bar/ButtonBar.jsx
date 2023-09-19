@@ -21,12 +21,13 @@ const ButtonBar = ({goal}) => {
 
       <>
       <div className='flex flex-col items-center'>
-      <h2 className="my-10 text-3xl text-cyan-800"> Goal: {goal} ml</h2>
+        <h2 className="my-10 text-3xl text-cyan-800"> Goal: {goal} ml</h2>
       </div>
       <div className='flex flex-col items-center'>
-      <p className="my-10 text-3xl text-sky-500"> {waterQuantity} ml</p>
+        <p className="my-10 text-3xl text-sky-500"> {waterQuantity} ml</p>
       { waterQuantity >= goal ? ( <p className="my-10 text-base text-sky-500 text-lg "> Nice job! </p>) : <p className="my-4 text-base text-amber-500 text-lg"> You have not hit your goal yet </p> }
       </div>
+      
       <div className='flex flex-row justify-center my-20 '>
         <div className='flex flex-col items-center'>
           <ImageButton image={glass} onClick = { event => addWater(200) } />
