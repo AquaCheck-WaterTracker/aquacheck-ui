@@ -38,7 +38,7 @@ function Navbar() {
                 <Link to='/'>Home</Link>
                 </li>
                 <li className="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2">
-                <Link to='/goal'>Advice</Link>
+                <Link to='/goal'>Goal</Link>
                 </li>
                 <li className="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2">
                 <Link to='/about'>About</Link>

@@ -3,6 +3,7 @@ import one from '../assets/section.svg'
 import second from '../assets/section.svg'
 import three from '../assets/section.svg'
 import four from '../assets/section.svg'
+
 function About() {
     return (
         <div className="relative">
