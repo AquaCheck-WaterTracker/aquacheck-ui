@@ -1,19 +1,26 @@
 import ImageButton from "../../atoms/Button/ImageButton";
-import PropTypes from 'prop-types';
 import glass from "../../../assets/glass-200.svg";
 import bottlexs from "../../../assets/bottle400.svg";
 import botellalg from "../../../assets/bottle700.svg";
-import {useState} from "react";
+import {useState, useContext } from "react";
+import { GoalContext } from '../tracker/Tracker';
 
 
-const Intake = ({goal}) => {
+const Intake = () => {
+
+    const { goal, setGoal } = useContext(GoalContext);
+
     const [waterQuantity, setWaterQuantity] = useState(0);
+
+
+    const intakeGoal = (goal && goal.goal || 0);
 
     const addWater = (quantity) => {     
       setWaterQuantity(quantity + waterQuantity);
     };
 
     const saveWater = (waterQuantity) => {
+
        console.log(waterQuantity)
     };
 
@@ -21,7 +28,7 @@ const Intake = ({goal}) => {
       <>
       <div className='flex flex-col items-center'>
         <p className="my-10 text-3xl text-sky-500"> {waterQuantity} ml</p>
-      { waterQuantity >= goal ? ( <p className="my-10 text-base text-sky-500 text-lg "> Nice job! </p>) : <p className="my-4 text-base text-amber-500 text-lg"> You have not hit your goal yet </p> }
+      { ( intakeGoal > 0 && waterQuantity >= intakeGoal) ? ( <p className="my-10 text-base text-sky-500 text-lg "> Nice job! </p>) : <p className="my-4 text-base text-amber-500 text-lg"> You have not hit your goal yet </p> }
       </div>
       
       <div className='flex flex-row justify-center my-20 '>
@@ -47,10 +54,7 @@ const Intake = ({goal}) => {
       </>
     );
   };
-  
-  Intake.propTypes = {
-    goal: PropTypes.number.isRequired,
-  };
+
   export default Intake;
  
   

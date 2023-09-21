@@ -1,25 +1,27 @@
+import { useEffect, useState, createContext } from 'react';
+
 import Intake from '../intake/Intake'
-import useFetch from "../../../hooks/useFetch";
 import Goal from '../goal/Goal';
+import UseGetRequest from '../../../hooks/UseGetRequest';
+
+export const GoalContext = createContext(null);
 
 function Tracker() {
-  const { data: goal } = useFetch("http://127.0.0.1:8000/api/goals?userId=1");
+  const { data: goalData } = UseGetRequest("http://127.0.0.1:8000/api/goals?userId=1");
 
- 
-
-  if (!goal) {
-    return <div>Loading...</div>;
-  }
+  const [goal, setGoal] = useState(null);
+  
+  useEffect(() => {
+    setGoal(goalData);
+}, [goalData])
 
   return (
     <>
-
-            <Goal goal={goal.goal || 0}> </Goal>
-            <Intake goal={goal.goal || 0}></Intake>
-
-
-
-        </>
+         <GoalContext.Provider value={{ goal, setGoal }}>
+            <Goal> </Goal>
+            <Intake></Intake>
+          </GoalContext.Provider>
+    </>
   );
 }
 
