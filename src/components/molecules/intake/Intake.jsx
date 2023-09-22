@@ -4,12 +4,13 @@ import bottlexs from "../../../assets/bottle400.svg";
 import botellalg from "../../../assets/bottle700.svg";
 import {useState, useContext } from "react";
 import { GoalContext } from '../tracker/Tracker';
+import { UserContext } from '../../../App'
 
 
 const Intake = () => {
 
     const { goal, setGoal } = useContext(GoalContext);
-
+    const { user, setUser } = useContext(UserContext);
     const [waterQuantity, setWaterQuantity] = useState(0);
 
 
@@ -19,10 +20,27 @@ const Intake = () => {
       setWaterQuantity(quantity + waterQuantity);
     };
 
-    const saveWater = (waterQuantity) => {
+    const saveWater = async (newIntake) => {
+      const requestOptions = {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ id_user: user && user.id, intake: newIntake })
+      };
 
-       console.log(waterQuantity)
-    };
+      try {
+          const response = await fetch("http://127.0.0.1:8000/api/intake", requestOptions);
+          
+          if(!response.ok) {
+            throw new Error("POST response was not OK");
+          }
+
+          const json = await response.json();
+          saveWater(json);
+
+        } catch (error) {
+            console.error("Error fetching data:", error)
+        }
+  }
 
     return (
       <>
