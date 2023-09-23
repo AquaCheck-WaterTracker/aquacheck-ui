@@ -8,7 +8,6 @@ export const GoalContext = createContext(null);
 
 function Tracker() {
   const { data: goalData } = UseGetRequest("http://127.0.0.1:8000/api/goals?userId=1");
-
   const [goal, setGoal] = useState(null);
   
   useEffect(() => {

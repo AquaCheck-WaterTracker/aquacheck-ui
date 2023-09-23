@@ -20,11 +20,13 @@ const UseGetRequest = (url) => {
         console.error("Error fetching data:", error)
       }
     }
+   
 
     fetchData();
  }, [url]);
 
   return { data };
+  
 };
 
 export default UseGetRequest;

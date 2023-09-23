@@ -2,9 +2,10 @@ import ImageButton from "../../atoms/Button/ImageButton";
 import glass from "../../../assets/glass-200.svg";
 import bottlexs from "../../../assets/bottle400.svg";
 import botellalg from "../../../assets/bottle700.svg";
-import {useState, useContext } from "react";
+import {useState, useContext, useEffect } from "react";
 import { GoalContext } from '../tracker/Tracker';
-import { UserContext } from '../../../App'
+import { UserContext } from '../../../App';
+import UseGetRequest from '../../../hooks/UseGetRequest';
 
 
 const Intake = () => {
@@ -13,6 +14,21 @@ const Intake = () => {
     const { user, setUser } = useContext(UserContext);
     const [waterQuantity, setWaterQuantity] = useState(0);
 
+    const { data: intakeData } = UseGetRequest("http://127.0.0.1:8000/api/intake?userId=1");
+    const [intakes, setIntakes] = useState([]);
+    
+    useEffect(() => {
+      setIntakes(intakeData);
+  }, [intakeData]);
+  
+
+  const intakeResult = (intakes || []).map(intake => {
+    console.log(intake.intake);
+    return intake.intake; 
+  });
+  
+  const sumaIntakes = intakeResult.reduce((total, intake) => total + intake, 0);
+  console.log("Suma de los intakes:", sumaIntakes);
 
     const intakeGoal = (goal && goal.goal || 0);
 
@@ -20,6 +36,7 @@ const Intake = () => {
       setWaterQuantity(quantity + waterQuantity);
     };
 
+   
     const saveWater = async (newIntake) => {
       const requestOptions = {
           method: 'POST',
@@ -36,17 +53,22 @@ const Intake = () => {
 
           const json = await response.json();
           saveWater(json);
+          setWaterQuantity(0);
 
         } catch (error) {
             console.error("Error fetching data:", error)
         }
+
+        // MOSTRAR TODOS LOS INTAKES
   }
 
     return (
       <>
       <div className='flex flex-col items-center'>
-        <p className="my-10 text-3xl text-sky-500"> {waterQuantity} ml</p>
+        <p> You have been drinking {sumaIntakes} </p>
+ 
       { ( intakeGoal > 0 && waterQuantity >= intakeGoal) ? ( <p className="my-10 text-base text-sky-500 text-lg "> Nice job! </p>) : <p className="my-4 text-base text-amber-500 text-lg"> You have not hit your goal yet </p> }
+      <p className="my-10 text-3xl text-sky-500"> {waterQuantity} ml</p>
       </div>
       
       <div className='flex flex-row justify-center my-20 '>
