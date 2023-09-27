@@ -16,19 +16,19 @@ const Intake = () => {
 
     const { data: intakeData } = UseGetRequest("http://127.0.0.1:8000/api/intake?userId=1");
     const [intakes, setIntakes] = useState([]);
+    const [sumaIntakes, setSumaIntakes] = useState(0);
     
     useEffect(() => {
       setIntakes(intakeData);
   }, [intakeData]);
   
 
-  const intakeResult = (intakes || []).map(intake => {
-    console.log(intake.intake);
-    return intake.intake; 
-  });
-  
-  const sumaIntakes = intakeResult.reduce((total, intake) => total + intake, 0);
-  console.log("Suma de los intakes:", sumaIntakes);
+  useEffect(() => {
+    const sumaIntakes = (intakes || []).reduce((total, intake) => total + intake.intake, 0);
+    setSumaIntakes(sumaIntakes);
+
+    console.log("Suma de los intakes:", sumaIntakes);
+  }, [intakes]);
 
     const intakeGoal = (goal && goal.goal || 0);
 
@@ -51,9 +51,10 @@ const Intake = () => {
             throw new Error("POST response was not OK");
           }
 
-          const json = await response.json();
-          saveWater(json);
+      
           setWaterQuantity(0);
+          setSumaIntakes(sumaIntakes + newIntake)
+          
 
         } catch (error) {
             console.error("Error fetching data:", error)
@@ -67,7 +68,7 @@ const Intake = () => {
       <div className='flex flex-col items-center'>
         <p> You have been drinking {sumaIntakes} </p>
  
-      { ( intakeGoal > 0 && waterQuantity >= intakeGoal) ? ( <p className="my-10 text-base text-sky-500 text-lg "> Nice job! </p>) : <p className="my-4 text-base text-amber-500 text-lg"> You have not hit your goal yet </p> }
+      { ( intakeGoal > 0 && sumaIntakes >= intakeGoal) ? ( <p className="my-10 text-base text-sky-500 text-lg "> Nice job! </p>) : <p className="my-4 text-base text-amber-500 text-lg"> You have not hit your goal yet </p> }
       <p className="my-10 text-3xl text-sky-500"> {waterQuantity} ml</p>
       </div>
       
